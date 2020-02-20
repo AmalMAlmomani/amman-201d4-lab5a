@@ -9,12 +9,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    var theSum = a+b;
+    var theSum = a + b;
     // 'The sum of 4 and 7 is 11.'
     var message = `The sum of ${a} and ${b} is ${theSum}.`;
     return [theSum, message];
 }
-testSum(4,7);
+testSum(4, 7);
 
 // Here is the test for sum(); uncomment it to run it
 // testSum(4, 7);
@@ -32,12 +32,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-var theMultiply = a*b;
-//''The product of 5 and 9 is 45.'
-var message = `The product of ${a} and ${b} is ${theMultiply}.`;
-return [theMultiply, message];
+    var theMultiply = a * b;
+    //''The product of 5 and 9 is 45.'
+    var message = `The product of ${a} and ${b} is ${theMultiply}.`;
+    return [theMultiply, message];
 }
-testMultiply(); 
+testMultiply();
 
 // Here is the test for multiply(); uncomment it to run it
 // testMultiply(5,9);
@@ -59,14 +59,16 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-   
-    var sum1 = sum(a,b)[0] + c ;
-    var multi1 = multiply(a,b)[0] * c ; 
-    var message1 = `${a} and ${b} and ${c} sum to ${sum1}.`;
-   var message2 = `The product of ${a} and ${b} and ${c} is ${multi1}.`;
-   return ([sum1 , multi1 , message1 , message2]); 
-   
-   
+
+    var sum1 = sum(a, b)[0];
+    var sum2 = sum(sum1, c)[0];
+    var multi1 = multiply(a, b)[0];
+    var multi2 = multiply(multi1, c)[0];
+    var message1 = `${a} and ${b} and ${c} sum to ${sum2}.`;
+    var message2 = `The product of ${a} and ${b} and ${c} is ${multi2}.`;
+    return ([sum2, multi2, message1, message2]);
+
+
 }
 testSumAndMultiply();
 
@@ -89,8 +91,11 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-
+    var sumA = sumAndMultiply(testArray[0],testArray[1],testArray[2])[0];
+    var message3 = `${testArray[0]},${testArray[1]},${testArray[2]} was passed in as an array of numbers, and ${sumA} is their sum.`;
+    return ([sumA, message3]);
 }
+testSumArray();
 
 // Here is the test for sumArray(); uncomment it to run it
 
@@ -135,7 +140,7 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
+var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
